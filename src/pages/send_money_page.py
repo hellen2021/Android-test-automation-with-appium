@@ -51,3 +51,11 @@ class SendMoney:
     def click_OK(self):
         el_click_ok = self.wait.until(EC.element_to_be_clickable((AppiumBy.XPATH, SendMoneyLocators.okBtn_XPATH)))
         el_click_ok.click()
+
+    def is_send_successful(self):
+        try:
+            # Wait for the success message or indicator to be visible
+            success_message = self.wait.until(EC.visibility_of_element_located((AppiumBy.XPATH, '//android.widget.TextView[@text="Transfer Success"]')))
+            return success_message.is_displayed()
+        except:
+            return False

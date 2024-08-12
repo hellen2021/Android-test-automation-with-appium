@@ -10,7 +10,7 @@ class LoginPage:
 
     def is_logged_in(self):
         try:
-             # Check if an element that appears only when logged in is present
+            # Check if an element that appears only when logged in is present
             self.wait.until(EC.presence_of_element_located((AppiumBy.XPATH, '//android.widget.TextView[@text="Hey,"]')))
             return True
         except:

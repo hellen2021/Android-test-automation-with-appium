@@ -1,0 +1,17 @@
+userName: hellencheptoo_Ffbaol
+accessKey: ppJkH5urFzdsyRZkUrxs
+framework: python
+app: "bs://d82f75a7daba2d91d966307319404f2a2e821d83"  # Replace with the uploaded APK URL
+platforms:
+  - platformName: android
+    deviceName: Samsung Galaxy S22 Ultra
+    platformVersion: 12.0
+  - platformName: android
+    deviceName: Xiaomi Redmi Note 11
+    platformVersion: 11.0
+  - platformName: android
+    deviceName: Oppo Reno 6
+    platformVersion: 11.0
+browserstackLocal: true
+buildName: browserstack-build-1
+projectName: SIT Login
