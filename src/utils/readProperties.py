@@ -66,6 +66,9 @@ class ReadConfig:
     def get_appium_server_url(self):
         return self.config_ini.get('common info', 'appium_server_url')
 
+    def get_browserstack_appium_server_url(self):
+        return self.config_ini.get('common info', 'browserstack_appium_server_url')
+
     def get_app_activity(self):
         return self.config_ini.get('common info', 'appActivity')
 

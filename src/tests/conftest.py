@@ -37,13 +37,17 @@ def get_dynamic_device_details():
     else:
         logger.info("No connected device detected. Falling back to BrowserStack emulator details.")
         # Fallback to BrowserStack emulator details from the YAML configuration
-        desired_capabilities = config_reader.get_device_capabilities(0)  # Change index as needed
-        return {
-            "deviceName": desired_capabilities['deviceName'],
-            "platformName": "Android",
-            "platformVersion": desired_capabilities['platformVersion'],
-            "deviceType": "Android Emulator (BrowserStack)"
-        }
+        try:
+            desired_capabilities = config_reader.get_device_capabilities(0)  # Adjust the index if necessary
+            return {
+                "deviceName": desired_capabilities['deviceName'],
+                "platformName": desired_capabilities['platformName'],
+                "platformVersion": desired_capabilities['platformVersion'],
+                "deviceType": "Android Emulator (BrowserStack)",
+            }
+        except Exception as e:
+            logger.error(f"Failed to fetch BrowserStack device details: {e}")
+            raise
 
 # Hook to add metadata to the HTML report
 def pytest_configure(config):

@@ -35,9 +35,13 @@ def test_login(driver):
         # If not logged in, perform the login steps
         login_page.enter_password(password)
         login_page.click_signin()
-        login_page.click_ok()
+        # login_page.click_ok()
+
+        # Assert that the user is logged in
+        assert login_page.is_logged_in(), "Login failed"
         print("Login Successful !!!!")
 
-    # Assert that the user is logged in
-    assert login_page.is_logged_in(), "Login failed"
-    print("User already logged in")
+    else:
+        # if the user was already logged in
+        print("User already logged in")
+
